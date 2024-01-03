@@ -4,12 +4,12 @@
 .pnp.js
 
 # config
-firebase-config.jsx
-.firebase
-.firebaserc
+# firebase-config.jsx
+# .firebase
+# .firebaserc
 
 # data
-/src/data/products.json
+# /src/data/products.json
 
 # testing
 /coverage
