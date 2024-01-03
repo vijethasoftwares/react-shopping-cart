@@ -4,10 +4,16 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 import { firebaseConfig } from "./firebase-config";
 
-const app = initializeApp(firebaseConfig);
+let auth, db, storage;
 
-const auth = getAuth(app);
-const db = getFirestore(app);
-const storage = getStorage(app);
+try {
+  const app = initializeApp(firebaseConfig);
+  auth = getAuth(app);
+  db = getFirestore(app);
+  storage = getStorage(app);
+} catch (error) {
+  console.error("Firebase initialization error:", error);
+  throw error; // Rethrow the error to halt the application startup if Firebase initialization fails.
+}
 
 export { auth, db, storage };
